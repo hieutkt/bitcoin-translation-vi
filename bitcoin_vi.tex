@@ -1,4 +1,4 @@
-% Created 2018-02-22 T5 09:33
+% Created 2018-02-23 T6 14:36
 % Intended LaTeX compiler: pdflatex
 \documentclass{scrartcl}
 \usepackage[utf8]{inputenc}
@@ -18,6 +18,7 @@
 \usepackage{indentfirst}
 \usepackage{minted}
 \usepackage[utf8]{vietnam}
+\usepackage{mathptmx}
 \usepackage{glossaries}
 \makeglossaries
 \usepackage{tikz}
@@ -62,7 +63,7 @@ Các thông tin trong mạng lưới được lan truyền với tinh thần nhi
 \end{abstract}
 
 \section{Giới thiệu}
-\label{sec:org7b84e67}
+\label{sec:orgf4f993d}
 Các hoạt động thương mại trên Internet ngày nay gần như phụ thuộc một cách tuyệt đối vào các tổ chức tài chính hoạt động với danh nghĩa một bên thứ ba được tin tưởng đứng ra tiến hành các giao dịch điện tử.
 Trong khi hệ thống này hoạt động đủ tốt đối với hầu hết các giao dịch, nó phải gánh chịu những điểm yếu cố hữu của một mô hình dựa trên sự tin tưởng.
 Các giao dịch không hoàn trả là không thực sự khả thi, vì các tổ chức tài chính này không thể tránh được việc phải đứng ra giải quyết các tranh chấp.
@@ -79,7 +80,7 @@ Trong bài viết này, chúng ta đề xuất một giải pháp cho vấn đ�
 Hệ thống này là đảm bảo an toàn chừng nào tập thể các điểm đầu nút trung thực trong mạng lưới kiểm soát số lực CPU nhiều hơn bất kỳ nhóm các đầu nút công kích nào khác.
 
 \section{Các giao dịch}
-\label{sec:orgf999346}
+\label{sec:org9face22}
 
 Chúng ta định nghĩa một đồng điện tử là một chuỗi các chữ ký điện tử.
 Mỗi người chủ sở hữu chuyển đồng tiền cho người sở hữu tiếp theo bằng cách ký một số băm của giao dịch trước đó và \gls{pubkey} của của người chủ tiếp theo rồi thêm chữ ký này vào đuôi của đồng tiền.
@@ -140,7 +141,7 @@ Trong mô hình dựa trên \gls{mint}, họ phải nhận thức được tất
 Người trả tiền cần bằng chứng rằng vào thời điểm của mỗi giao dịch, phần lớn các điểm đầu nút đồng ý rằng đó là giao dịch đầu tiên của đồng tiền này.
 
 \section{Hệ thống máy chủ mốc thời gian}
-\label{sec:orgd5d49de}
+\label{sec:org6c3a70e}
 
 Giải pháp mà chúng ta đề xuất bắt đầu với một hệ thống máy chủ mốc thời gian.
 Một máy chủ mốc thời gian hoạt động bằng cách đánh mốc thời gian số băm của một khối gồm các hạng mục và công bố rộng rãi số băm này, giống như là trên báo hoặc trong mạng lưới Usenet (\cite{massias_design_1999,haber_how_1990,bayer1993improving,haber1997secure}).
@@ -172,7 +173,7 @@ Mỗi mốc thời gian bao gồm mốc thời gian trước đó trong số bă
 \end{center}
 
 \section{\Gls{pow}}
-\label{sec:org2be2870}
+\label{sec:orgb8a224a}
 Để thiết kế một máy chủ mốc thời gian phân quyền với nền tảng ngang hàng, chúng ta cần phải sử dụng một hệ thống \gls{pow} tương tự như Hashcash của Adam \textcite{back2002hashcash}, không như là trên báo hoặc mạng lưới Usenet.
 \Gls{pow} liên quan đến việc tìm kiếm một giá trị mà khi đưa vào hàm băm, ví dụ như hàm SHA-256, số băm tạo ra sẽ bắt đầu bằng một số lượng bit 0 nào đó.
 Lực tính toán trung bình sẽ tăng theo cấp mũ của số lượng bit 0 mà ta yêu cầu và có thể được kiểm tra bằng cách thực hiện một phép băm duy nhất.
@@ -215,7 +216,7 @@ Nếu phần lớn năng lượng CPU được kiểm soát bởi các điểm �
 Chúng ta sẽ thấy ở mục sau rằng xác suất một kẻ tấn công chậm hơn có thể bắt kịp sẽ suy giảm theo cấp số mũ của các khối nối tiếp đã được thêm vào.
 
 \section{Mạng lưới}
-\label{sec:org6b2f7f4}
+\label{sec:orgc8a805c}
 Các bước để vận hành mạng lưới này như sau:
 \begin{enumerate}
 \item Các giao dịch mới được công bố cho tất cả các điểm đầu nút.
@@ -232,7 +233,7 @@ Trong trường hợp đó, các điểm đầu nút sẽ tiếp tục làm vi�
 Thế ngang bằng giữa hai nhánh sẽ bị phá vỡ một khi có \gls{pow} mới được tìm ra và một chuỗi trở nên dài hơn chuỗi còn lại; khi đó các điểm đầu nút đang làm việc bên nhánh ngắn hơn sẽ chuyển về nhánh dài hơn.
 
 \section{Động cơ}
-\label{sec:org42bc5ad}
+\label{sec:orgb5af6c2}
 Theo quy ước, giao dịch đầu tiên trong mỗi khối là một giao dịch mà sẽ bắt đầu một đồng tiền mới thuộc quyền sở hữu của người tạo ra khối.
 Điều này làm tăng động cơ cho các điểm đầu nút tham gia hỗ trợ cho mạng lưới và cung cấp một cơ chế để đẩy những đồng tiền mới vào lưu thông, vì vốn không có một cơ quan thẩm quyền nào đứng ra để phát hành chúng cả.
 Việc đều đặn thêm một khối lượng tiền cố định vào lưu thông là tương đồng với việc những thợ đào đầu tư nguồn lực để tìm thêm vàng đưa vào lưu thông.
@@ -247,7 +248,7 @@ Nếu một kẻ tấn công tham lam nào đó có thể tập trung nhiều n�
 Anh ta sẽ sớm nhận thấy rằng việc chơi theo quy tắc là có lợi hơn, vì quy tắc đó sẽ thưởng cho anh ta số lượng tiền nhiều hơn tất cả những người còn lại cộng lại, còn hơn là làm suy yếu cả hệ thống và cả tính hợp lệ của số tiền anh ta có.
 
 \section{Lấy lại không gian trên đĩa}
-\label{sec:org9f3a99d}
+\label{sec:org98ca48d}
 
 Một khi giao dịch mới nhất trong đồng tiền được đào sâu dưới đủ số lượng khối, những giao dịch đằng trước nó có thể được bỏ đi để tiết kiệm không gian lưu trữ trên đĩa.
 Để tạo điều kiện cho việc này mà không ảnh hưởng đến số băm của các khối, các giao dịch sẽ được băm thông qua một \gls{merkletree} (\cite{merkle1980protocols,massias_design_1999,haber1997secure}),
@@ -311,7 +312,7 @@ Phần tiêu đề của một khối không có giao dịch có dung lượng t
 Với các hệ thống máy tính thường được bán ra với 20GB RAM vào năm 2008, và mức tăng trưởng dự đoán là 1.2GB mỗi năm theo Định luật Moore, việc lưu trữ sẽ không thành vấn đề thậm chí chúng ta phải lưu trữ phần tiêu đề của tất cả các khối trong bộ nhớ.
 
 \section{Giao thức chứng thực giao dịch giản lược}
-\label{sec:org7b0b544}
+\label{sec:org8f28da7}
 
 Việc chứng thực các thanh toán mà không cần thiết phải chạy một đầu nút đầy đủ là có khả thi.
 Một người chỉ cần lưu giữ một bản sao phần tiêu đề của các khối có chuỗi \gls{pow} dài nhất, bản sao này có thể có được bằng cách truy vấn các điểm đầu nút trong mạng lưới cho đến khi anh ta thấy thuyết phục rằng anh ta đang có phiên bản chuỗi dài nhất, và nhận nhánh \gls{merkletree} liên kết giao dịch với khối mà giao dịch đó được đóng mốc thời gian.
@@ -364,7 +365,7 @@ Một chiến thuật phòng vệ là nghe lời cảnh báo từ các điểm n
 Những doanh nghiệp thường xuyên nhận được các đơn thanh toán hẳn vẫn sẽ muốn chạy đầu nút cho riêng mình để xác thực nhanh hơn và thực hiện bảo mật một cách độc lập hơn.
 
 \section{Kết hợp và phân chia giá trị}
-\label{sec:org9eb034d}
+\label{sec:org7883d58}
 
 Mặc dù việc xử lý các đồng tiền một cách đơn lẻ là khả thi, việc tạo ra một giao dịch riêng cho mỗi một xu nhỏ trong giao dịch là khá cồng kềnh.
 Để giá trị có thể được chia tách và kết hợp, các giao dịch bao gồm nhiều đầu vào và đầu ra.
@@ -392,7 +393,7 @@ Cần phải chú ý rằng trường hợp phân tách, khi mà một giao dị
 Việc trích xuất một bản sao tách biệt lịch sử của một giao dịch là không bao giờ cần thiết. 
 
 \section{Tính bảo mật}
-\label{sec:org7b7e052}
+\label{sec:org6a34269}
 
 Mô hình ngân hàng truyền thống đạt được mức độ bảo mật bằng cách giới hạn quyền tiếp cận thông tin của các bên tham gia và các bên trung gian tin cậy.
 Sự cần thiết của việc thông báo công khai tất cả các giao dịch là đi ngược lại với mô hình này, nhưng tính riêng tư vẫn có thể được duy trì bằng cách chia dòng chảy của thông tin theo hướng khác: ẩn danh các \gls{pubkey}.
@@ -429,7 +430,7 @@ Một số liên kết là không thể tránh được trong những giao dịc
 Rủi ro ở đây là nếu danh tính chủ sở hữu của một khóa bị tiết lộ, các liên kết cũng sẽ tiết lộ các giao dịch mà thuộc về cùng một chủ sở hữu này.
 
 \section{Một số tính toán}
-\label{sec:orgc4b1050}
+\label{sec:org3798b3b}
 
 Ta xét trường hợp một kẻ tấn công tìm cách tạo ra một chuỗi khối mới nhanh hơn chuỗi khối trung thực. 
 Kể cả nếu điều này có thể được thực hiện thành công, cũng không có nghĩa rằng anh ta có thể tùy ý tạo ra bất kỳ thay đổi nào trong hệ thống, như là tạo ra giá trị từ hư vô hay lấy số tiền chưa bao giờ thuộc quyền sở hữu của kẻ tấn công.
@@ -557,7 +558,7 @@ q=0.40  z=89
 q=0.45  z=340
 \end{minted}
 \section{Kết luận}
-\label{sec:orga833666}
+\label{sec:org935a3a6}
 
 Chúng ta đề xuất một hệ thống giao dịch điện tử mà không phụ thuộc vào sự tin cậy.
 Ta bắt đầu bằng nền tảng thông thường của các đồng tiền tạo ra bằng chữ ký điện tử, cho phép kiểm soát quyền sở hữu rất chặt chẽ, nhưng không thể hoàn thiện vì thiếu cách để ngăn chặn hiện tượng \gls{dblspd}.

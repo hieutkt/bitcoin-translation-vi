@@ -6,7 +6,7 @@
 #+LATEX_CLASS_OPTIONS:
 #+LATEX_HEADER:
 #+LATEX_HEADER: \usepackage[utf8]{vietnam}
-# #+LATEX_HEADER: \usepackage{mathptmx}
+#+LATEX_HEADER: \usepackage{mathptmx}
 #+LATEX_HEADER: \usepackage{glossaries}
 #+LATEX_HEADER: \makeglossaries
 # #+latex_header: \glsdisablehyper
